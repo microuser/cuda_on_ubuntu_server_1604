@@ -3,11 +3,11 @@
 scriptExitCode=$((0))
 autoStart=$(($1+0))
 
-yesno=$(dialog --yesno 'install cuda' 5 30 --output-fd 1)
+yesno=$(dialog --yesno 'install cuda' 9 70 --output-fd 1)
 echo $yesno
 echo $yesno
 
-exityesno=$(dialog --yesno 'install cuda' 5 30 && echo 0 || echo 1)
+exityesno=$(dialog --yesno 'install cuda' 9 70 && echo 0 || echo 1)
 echo $exityesno
 echo $exityesno
 
