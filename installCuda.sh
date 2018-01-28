@@ -15,13 +15,9 @@ scriptExitCode=$((0))
 #MYVAR=$(dialog --inputbox "THIS OUTPUT GOES TO FD 1" 25 25  --output-fd 1)
 #echo $MYVAR
 
-while $(! dialog --yesno "while dialog" 9 70) && false  ; do
+while $( dialog --yesno "while dialog" 9 70) && false  ; do
   echo doing
 done;
 echo doneing
 
 
-while $(! dialog --yesno "while dialog" 9 70) && false  ; do
-  echo doing
-done;
-echo doneing
