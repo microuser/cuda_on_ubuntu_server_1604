@@ -15,10 +15,10 @@
 #MYVAR=$(dialog --inputbox "THIS OUTPUT GOES TO FD 1" 25 25  --output-fd 1)
 #echo $MYVAR
 
-stillWhile="`true`"; while [[ "$stillWhile"  == "`true`" ]] && dialog --yesno "while dialog" 9 70   ; do
+stillWhile=$((1)); while [[ "$stillWhile"  == $((1)) ]] && dialog --yesno "while dialog" 9 70   ; do
   echo doing
   echo stillWhile:$stillWhile
-  stillWhile="`false`"
+  stillWhile=$((0))
 done;
 echo doneing
 
