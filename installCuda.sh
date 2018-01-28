@@ -17,7 +17,8 @@
 
 stillWhile="`true`"; while [[ "$stillWhile"  == "`true`" ]] && dialog --yesno "while dialog" 9 70   ; do
   echo doing
-  stillWhile=`false`
+  echo stillWhile:$stillWhile
+  stillWhile="`false`"
 done;
 echo doneing
 
