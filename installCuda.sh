@@ -15,8 +15,9 @@
 #MYVAR=$(dialog --inputbox "THIS OUTPUT GOES TO FD 1" 25 25  --output-fd 1)
 #echo $MYVAR
 
-while dialog --yesno "while dialog" 9 70 && false  ; do
+stillWhile=`true`; while [[ "$stillWhile"  == "``true" ]] && dialog --yesno "while dialog" 9 70   ; do
   echo doing
+  stillWhile=`false`
 done;
 echo doneing
 
