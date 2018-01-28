@@ -15,7 +15,7 @@ echo exityesno $exityesno
 MYVAR=$(dialog --inputbox "THIS OUTPUT GOES TO FD 1" 25 25  --output-fd 1)
 echo $MYVAR
 
-while dialog --yesno "while dialog" 9 70 ; do
+while ! dialog --yesno "while dialog" 9 70 || break; do
   echo doing
 done;
 echo doneing
