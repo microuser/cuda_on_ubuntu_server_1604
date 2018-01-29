@@ -24,7 +24,7 @@ fi
 
 
 
-while dialog --yesno "while dialog" 9 70   ; do
+while dialog --yesno "install cuda" 9 70   ; do
   
   
   
