@@ -44,7 +44,7 @@ done;
 echo doneing
 
 #while [[ "$stillWhile"  == $((1)) ]] && dialog --yesno "while dialog" 9 70   ; do
-while dialog --yesno "while dialog" 9 70   ; do
+while dialog --yesno "configure xorg" 9 70   ; do
 
   touch xorg.conf || exit 1
   
