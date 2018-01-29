@@ -56,7 +56,7 @@ while dialog --yesno "configure xorg" 9 70   ; do
   cat /etc/X11/xorg.conf | tee /etc/X11/xorg.conf`date +%s` || exit 1
   #sudo nvidia-xconfig -a  --cool-bits=28 --allow-empty-initial-configuration --enable-all-gpus || exit 1
   
-  cat > /usr/local/bin/gpufansetting << 'EOF'
+  cat > ~/gpufansetting << 'EOF'
 #!/bin/bash
     #a delay can be specified on the command line if not used from termonal session
     DEFAULT_DELAY=0
@@ -103,7 +103,10 @@ while dialog --yesno "configure xorg" 9 70   ; do
     nvidia-settings -q fans
 EOF
 
-
+  sudo mv ~/gpufansetting /usr/local/bin/gpufansetting
+  sudo chmod +x /usr/local/bin/gpufansetting
+  dialog --infobox "fpugansetting" 9 70
+  cat /usr/local/bin/gpufansetting
   
   dialog --infobox "xorg after `date`" 9 70
   cat /etc/X11/xorg.conf | tee /etc/X11/xorg.conf`date +%s` || exit 1
