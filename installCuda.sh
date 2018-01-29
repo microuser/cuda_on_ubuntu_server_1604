@@ -27,9 +27,11 @@ fi
 while dialog --yesno "while dialog" 9 70   ; do
   
   
-  sudo mkdir -p /usr/local/cudaRepo 
-  sudo chmod 777 /usr/local/cudaRepo || exit 1
+  
+  
   sudo rm -Rfv /usr/local/cudaRepo || exit 1
+  sudo mkdir -p /usr/local/cudaRepo || exit 1
+  sudo chmod 777 /usr/local/cudaRepo || exit 1
   cd /usr/local/cudaRepo || exit 1
   wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.61-1_amd64.deb || exit 1
   sudo dpkg -i cuda-repo-ubuntu1604_8.0.61-1_amd64.deb || exit 1
