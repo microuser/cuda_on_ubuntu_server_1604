@@ -15,20 +15,36 @@
 #MYVAR=$(dialog --inputbox "THIS OUTPUT GOES TO FD 1" 25 25  --output-fd 1)
 #echo $MYVAR
 
-stillWhile=$((1)); while [[ "$stillWhile"  == $((1)) ]] && dialog --yesno "while dialog" 9 70   ; do
+shouldInstallCuda8=`dialog --yesno && $((1)) || $((0)`
+echo installCuda:$installCuda
+
+if [[ $shouldInstallCuda == $((1)) ]] ; then
+  echo shouldInstallCuda
+fi
+
+
+
+while dialog --yesno "while dialog" 9 70   ; do
   
-  sudo mkdir /usr/local/mine || exit 1
-  sudo chmod 777 /usr/local/mine || exit 1
-  cd /usr/local/mine || exit 1
+  
+  sudo mkdir -p /usr/local/cudaRepo 
+  sudo chmod 777 /usr/local/cudaRepo || exit 1
+  sudo rm -Rfv /usr/local/cudaRepo || exit 1
+  cd /usr/local/cudaRepo || exit 1
   wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.61-1_amd64.deb || exit 1
   sudo dpkg -i cuda-repo-ubuntu1604_8.0.61-1_amd64.deb || exit 1
   sudo apt-get update || exit 1
   sudo apt-get -y install cuda-8-0 || exit 1
-
   
   #stillWhile=$((0))
   break;
 done;
 echo doneing
 
+#while [[ "$stillWhile"  == $((1)) ]] && dialog --yesno "while dialog" 9 70   ; do
+while dialog --yesno "while dialog" 9 70   ; do
+
+  sudo nvidia-xconfig -a --cool-bits=28 --allow-empty-initial-configuration  || exit 1
+
+done
 
