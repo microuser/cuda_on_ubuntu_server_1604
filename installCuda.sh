@@ -100,7 +100,7 @@ while dialog --yesno "configure xorg" 9 70   ; do
     sleep 2
     nvidia-smi
   
-    nvidia-smi -a fans
+    nvidia-smi -q fans
 EOF
 
 
