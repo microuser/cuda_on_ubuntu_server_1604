@@ -94,10 +94,10 @@ while dialog --yesno "configure xorg" 9 70   ; do
     #terminating Xorg will reset fan speeds to default so do not terminate Xorg!
     #sudo killall Xorg
     #from remote terminal
-    env DISPLAY=:1 nvidia-settings -a [gpu:0]/GPUFanControlState=1 -a [fan-0]/GPUTargetFanSpeed=89
+    #env DISPLAY=:1 nvidia-settings -a [gpu:0]/GPUFanControlState=1 -a [fan-0]/GPUTargetFanSpeed=89
     #from remote terminal
-    sudo nvidia-settings -c :1 -a [gpu:0]/GPUFanControlState=1 -a [fan-0]/GPUTargetFanSpeed=89
-    sleep 2
+    #sudo nvidia-settings -c :1 -a [gpu:0]/GPUFanControlState=1 -a [fan-0]/GPUTargetFanSpeed=89
+    #sleep 2
     nvidia-smi
   
     nvidia-settings -q fans
@@ -106,10 +106,15 @@ while dialog --yesno "configure xorg" 9 70   ; do
     nvidia-settings -q fans
     nvidia-settings -a [gpu:0]/GPUFanControlState=1 -a [fan:0]/GPUTargetFanSpeed=75
     
+    sudo add-apt-repository ppa:graphics-drivers/ppa
+    sudo apt-get update
+    sudo apt-get upgrade -y
+  
     sudo apt install -y nvidia-387
     
     #stop graphical login attempt, change run level
     sudo systemctl set-default multi-user.target
+    sudo apt-get install -y lubuntu-desktop
 
 EOF
 
