@@ -51,7 +51,7 @@ while dialog --yesno "configure xorg" 9 70   ; do
   #cat /etc/X11/xorg.conf | tee /etc/X11/xorg.conf`date +%s` || exit 1
   #sudo nvidia-xconfig -a --cool-bits=28 --allow-empty-initial-configuration  || exit 1
   
-  dialog --infobox "xorg before `date"
+  dialog --infobox "xorg before `date`"
   cat /etc/X11/xorg.conf | tee /etc/X11/xorg.conf`date +%s` || exit 1
   sudo nvidia-xconfig -a  --cool-bits=28 --allow-empty-initial-configuration --enable-all-gpus || exit 1
   dialog --infobox "xorg after `date`"
