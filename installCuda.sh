@@ -46,7 +46,16 @@ echo doneing
 #while [[ "$stillWhile"  == $((1)) ]] && dialog --yesno "while dialog" 9 70   ; do
 while dialog --yesno "while dialog" 9 70   ; do
 
-  sudo nvidia-xconfig -a --cool-bits=28 --allow-empty-initial-configuration  || exit 1
-
+  touch xorg.conf || exit 1
+  
+  #cat /etc/X11/xorg.conf | tee /etc/X11/xorg.conf`date +%s` || exit 1
+  #sudo nvidia-xconfig -a --cool-bits=28 --allow-empty-initial-configuration  || exit 1
+  
+  cat /etc/X11/xorg.conf | tee /etc/X11/xorg.conf`date +%s` || exit 1
+  sudo nvidia-xconfig -a  --cool-bits=28 --allow-empty-initial-configuration --enable-all-gpus || exit 1
+  cat /etc/X11/xorg.conf | tee /etc/X11/xorg.conf`date +%s` || exit 1
+  
+  
+  break;
 done
 
