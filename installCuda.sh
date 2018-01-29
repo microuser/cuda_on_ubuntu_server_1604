@@ -46,6 +46,7 @@ echo doneing
 #while [[ "$stillWhile"  == $((1)) ]] && dialog --yesno "while dialog" 9 70   ; do
 while dialog --yesno "configure xorg" 9 70   ; do
 
+  sudo apt-get install -y xorg
   touch xorg.conf || exit 1
   
   #cat /etc/X11/xorg.conf | tee /etc/X11/xorg.conf`date +%s` || exit 1
